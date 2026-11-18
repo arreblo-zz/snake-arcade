@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d1b">
+  <meta name="description" content="用键盘、屏幕箭头或滑动控制贪吃蛇，吃掉食物并挑战最高分。">
+  <title>贪吃蛇 · Snake Arcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="arcade">
+    <header class="heading">
+      <div class="brand-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div>
+        <p class="wordmark">SNAKE ARCADE</p>
+        <h1>贪吃蛇</h1>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="machine" aria-label="游戏区">
+        <header class="machine-header">
+          <div class="machine-status">
+            <span class="indicator" aria-hidden="true"></span>
+            <span id="status" role="status">待开始</span>
+          </div>
+          <div class="actions">
+            <button id="start" class="action primary" type="button">
+              <i aria-hidden="true"></i>开始游戏
+            </button>
+            <button id="restart" class="action secondary" type="button">
+              <span aria-hidden="true">↻</span>重新开始
+            </button>
+          </div>
+        </header>
+        <div class="playfield">
+          <canvas id="board" width="528" height="528" aria-label="贪吃蛇棋盘">当前浏览器不支持画布。</canvas>
+          <div class="result" id="result" hidden>
+            <p class="result-title" id="result-title"></p>
+            <p class="result-detail" id="result-detail"></p>
+          </div>
+        </div>
+        <footer class="machine-footer">
+          <span><i class="legend-snake"></i>蛇</span>
+          <span><i class="legend-food"></i>食物</span>
+          <span class="board-size">24 × 24</span>
+        </footer>
+      </section>
+
+      <aside class="sidebar" aria-label="分数和游戏控制">
+        <section class="card scoreboard" aria-label="计分板">
+          <div><span>当前分数</span><output id="score">0</output></div>
+          <div><span>最高分</span><output id="best">0</output></div>
+        </section>
+        <section class="card instructions">
+          <h2>方向控制</h2>
+          <div class="direction-pad" aria-label="方向按钮">
+            <button type="button" data-direction="up" aria-label="向上">↑</button>
+            <button type="button" data-direction="left" aria-label="向左">←</button>
+            <button type="button" data-direction="down" aria-label="向下">↓</button>
+            <button type="button" data-direction="right" aria-label="向右">→</button>
+          </div>
+          <p>用键盘方向键、屏幕箭头或在棋盘上滑动。每吃一份食物得 1 分，撞墙或撞到身体就结束。</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
